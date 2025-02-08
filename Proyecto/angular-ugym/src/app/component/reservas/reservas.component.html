@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Tus Clases Reservadas</h2>
+
+    <!-- Filtros -->
+    <div class="d-flex justify-content-center my-4 flex-wrap gap-3">
+        <div class="form-check">
+            <input class="form-check-input shadow-sm" type="checkbox" id="generales" [(ngModel)]="mostrarGenerales"
+                (change)="filtrarClases()" />
+            <label class="form-check-label ms-2 fw-semibold" for="generales">
+                Clases Generales
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input shadow-sm" type="checkbox" id="privadas" [(ngModel)]="mostrarPrivadas"
+                (change)="filtrarClases()" />
+            <label class="form-check-label ms-2 fw-semibold" for="privadas">
+                Clases Privadas
+            </label>
+        </div>
+    </div>
+
+    <!-- Lista de Reservas -->
+    <ng-container *ngFor="let reserva of reservasFiltradas">
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                <div class="text-md-start text-center">
+                    <h5 class="mb-2 fw-bold text-primary">
+                        {{ reserva.clase }} - {{ reserva.fecha }}
+                    </h5>
+                    <p class="mb-1 text-muted">
+                        {{ reserva.horaInicio }} - {{ reserva.horaFin }} |
+                        <span class="fw-semibold">Instructor:</span> {{ reserva.instructor }}
+                    </p>
+                </div>
+                <div class="mt-3 mt-md-0 text-center text-md-end">
+                    <button class="btn btn-outline-primary btn-sm me-2" (click)="editarReserva(reserva)">
+                        Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm" (click)="borrarReserva(reserva.id)">
+                        Borrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

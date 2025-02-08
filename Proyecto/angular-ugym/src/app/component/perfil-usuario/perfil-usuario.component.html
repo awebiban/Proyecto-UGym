@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Formulario del perfil e imagen -->
+    <div class="col-lg-8">
+      <h3 class="fw-bold">Tu Información</h3>
+      <div class="row">
+        <!-- Formulario -->
+        <div class="col-md-8">
+          <form (ngSubmit)="guardarCambios()" #form="ngForm" class="mt-3">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input type="text" id="nombre" class="form-control shadow-sm" [(ngModel)]="usuario.nombre" name="nombre"
+                required #nombre="ngModel" />
+              <div *ngIf="nombre.invalid && nombre.touched" class="text-danger small">
+                El nombre es obligatorio.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" class="form-control shadow-sm" [(ngModel)]="usuario.email" name="email"
+                required email #email="ngModel" />
+              <div *ngIf="email.invalid && email.touched" class="text-danger small">
+                <div *ngIf="email.errors?.['required']">El email es obligatorio.</div>
+                <div *ngIf="email.errors?.['email']">El email no tiene un formato válido.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="apellidos" class="form-label">Apellidos:</label>
+              <input type="text" id="apellido" class="form-control shadow-sm" [(ngModel)]="usuario.apellido"
+                name="apellido" required #apellido="ngModel" />
+              <div *ngIf="apellido.invalid && apellido.touched" class="text-danger small">
+                El apellido es obligatorio.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contrasena" class="form-label">Contraseña:</label>
+              <input type="password" id="contrasena" class="form-control shadow-sm" [(ngModel)]="usuario.contrasena"
+                name="contrasena" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Guardar</button>
+          </form>
+        </div>
+
+        <!-- Imagen del perfil -->
+        <div class="col-md-4 text-center mt-3 mt-md-0">
+          <div class="border rounded p-3">
+            <img [src]="imagenUrl || 'assets/imagenes/user.png'" alt="Imagen del usuario"
+              class="img-fluid rounded-circle mb-3" style="max-width: 120px;" />
+            <input type="file" (change)="cargarImagen($event)" class="form-control mb-2 shadow-sm" />
+            <button class="btn btn-secondary w-100" (click)="eliminarImagen()">Quitar Imagen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proximas clases -->
+    <div class="col-lg-4 mt-5 mt-lg-0">
+      <h3 class="fw-bold">Tus Próximas Clases</h3>
+      <div *ngFor="let clase of reservas" class="card mt-3">
+        <div class="card-body">
+          <h5 class="fw-bold">{{ clase.nombre }}</h5>
+          <p class="text-muted small">
+            {{ clase.dia }} | {{ clase.horaInicio }} - {{ clase.horaFin }}
+          </p>
+          <p class="mb-0">
+            <strong>Instructor:</strong> {{ clase.instructor }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

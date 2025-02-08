@@ -1,0 +1,48 @@
+<!-- Botón de despliegue -->
+<button class="btn btn-primary toggle-btn" 
+        *ngIf="isAuthenticated && !isOpen && isSidebarEnabled" 
+        (click)="toggleSidebar()">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- Fondo oscuro -->
+<div class="overlay" *ngIf="isOpen" (click)="toggleSidebar()"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" *ngIf="isSidebarEnabled" [ngClass]="{ 'open': isOpen }">
+    <!-- Logo y título -->
+    <div class="sidebar-header text-center">
+        <img src="../../../assets/imagenes/logo.png" alt="UGym Logo" class="logo">
+        <h2 class="sidebar-title">UGym</h2>
+    </div>
+    <!-- Opciones de navegación -->
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a class="nav-link link-dark" (click)="miPerfil()">
+                <i class="bi bi-person-circle"></i> Mi perfil
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link link-dark" (click)="misMsjs()">
+                <i class="bi bi-envelope"></i> Mis mensajes
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link link-dark" (click)="misReservas()">
+                <i class="bi bi-calendar"></i> Mis reservas
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link link-dark" (click)="misBonos()">
+                <i class="bi bi-tags"></i> Mis bonos
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <!-- Cerrar sesión -->
+    <div class="sidebar-footer text-center">
+        <a href="#" class="nav-link link-dark" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+        </a>
+    </div>
+</div>

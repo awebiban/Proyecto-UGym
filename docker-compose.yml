@@ -1,0 +1,39 @@
+services:
+  api_db:
+    build: ./Proyecto/bd/
+    restart: always
+    ports: 
+      - 3307:3306
+    networks:
+      - api_network
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  api:
+    build: ./Proyecto/UGym/
+    restart: always
+    ports: 
+      - 8888:8888
+    depends_on:
+      - api_db
+    networks:
+      - api_network
+    environment:
+      - spring.datasource.url=jdbc:mysql://api_db:3306/UGym
+      - spring.datasource.password=IesCampMorvedre01%
+      - spring.datasource.username=Usuariopresencial
+
+  web:
+    build: ./Proyecto/angular-ugym/
+    restart: always
+    ports:
+      - 4200:4200
+    depends_on:
+      - api
+    networks:
+      - api_network
+networks:
+  api_network:
+
+volumes:
+  mysql-data:

@@ -1,0 +1,16 @@
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.btn {
+    border-radius: 25px;
+}
+
+h5 {
+    margin-top: 20px;
+    color: #6c757d;
+}

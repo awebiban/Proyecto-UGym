@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content2" *ngIf="isSidebarVisible()">
+        
+        <div class="imagen">
+            <img class="logo" src="/assets/imagenes/logo.png">
+        </div>
+        <div class="parrafo">
+            <div class="parrafo1">
+                <img class="casa" src="assets/imagenes/bxs-home.svg">
+                <p (click)="inicio()"> Inicio </p>
+            </div>
+
+            <div class="parrafo1">
+                <img class="casa" src="assets/imagenes/bxs-calendar.svg">
+                <p (click)="verHorarios()"> Ver Horarios </p>
+            </div>
+
+            <div class="parrafo1">
+                <img class="casa" src="assets/imagenes/bxs-group.svg">
+                <p (click)="listaUsuarios()"> Lista Usuarios </p>
+            </div>
+
+            <div class="parrafo1">
+                <img class="casa" src="assets/imagenes/bxs-badge-check.svg">
+                <p (click)="altaEmpleado()"> Alta empleado </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

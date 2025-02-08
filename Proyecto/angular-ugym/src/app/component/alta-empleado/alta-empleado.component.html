@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Empleado</title>
+    <link href="alta-empleado.component.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <!-- Formulario -->
+            <div class="form-fields">
+                <h2 class="form-title">Alta de Empleado</h2>
+
+                <form #registroForm="ngForm" (ngSubmit)="guardarEmpleado()">
+                    <div class="input-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" class="input-field"
+                            placeholder="Tu nombre" required #nombre="ngModel">
+                        <div *ngIf="nombre.invalid && nombre.touched" class="error">Este campo es obligatorio</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" [(ngModel)]="usuario.apellido" name="apellidos"
+                            class="input-field" placeholder="Tus apellidos" required #apellidos="ngModel">
+                        <div *ngIf="apellidos.invalid && apellidos.touched" class="error">Este campo es obligatorio</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" [(ngModel)]="usuario.email" name="email" class="input-field"
+                            placeholder="tumail@dominio.com" required #email="ngModel">
+                        <div *ngIf="email.invalid && email.touched" class="error">Ingrese un correo válido</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" [(ngModel)]="usuario.password" name="contrasena"
+                            class="input-field" required #contrasena="ngModel">
+                        <div *ngIf="contrasena.invalid && contrasena.touched" class="error">Este campo es obligatorio</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="repetirContrasena">Confirmar contraseña:</label>
+                        <input type="password" id="repetirContrasena" [(ngModel)]="usuario.confirmPassword"
+                            name="repetirContrasena" class="input-field" required #repetirContrasena="ngModel">
+                        <div *ngIf="repetirContrasena.invalid && repetirContrasena.touched" class="error">Este campo es obligatorio</div>
+                        <div *ngIf="usuario.password !== usuario.confirmPassword && repetirContrasena.touched" class="error">Las contraseñas no coinciden</div>
+                    </div>
+
+                    <button type="submit" class="submit-button" [disabled]="registroForm.invalid">Registrarse</button>
+                </form>
+            </div>
+
+            <!-- Imagen -->
+            <div class="image-container">
+                <img src="../../../assets/imagenes/imagen-gimnasio.jpg" alt="Imagen del gimnasio" class="image">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

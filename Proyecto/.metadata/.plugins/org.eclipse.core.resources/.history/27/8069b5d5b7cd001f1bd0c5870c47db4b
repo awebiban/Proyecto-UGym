@@ -1,0 +1,42 @@
+package com.example.demo.model.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import com.example.demo.repository.entity.Reserva;
+
+import java.time.LocalDate;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ReservaDTO {
+
+	private Long id;
+    private int id_usuario;
+    private int id_horario;
+    private LocalDate fecha_reserva;
+    private String estado;
+
+    public static ReservaDTO convertToDto(Reserva reserva) {
+    	 return ReservaDTO.builder()
+        		.id(reserva.getId())
+        		.id_usuario(reserva.getUsuario().getId())
+                .id_horario(reserva.getHorario())
+                .fecha_reserva(reserva.getFecha_reserva())
+                .estado(reserva.getEstado())
+                .build();
+    }
+
+    public static Reserva convertToEntity(ReservaDTO reservaDTO) {
+        return Reserva.builder()
+                .id(reservaDTO.getId())
+                .id_horario(reservaDTO.getId_horario())
+                .fecha_reserva(reservaDTO.getFecha_reserva())
+                .estado(reservaDTO.getEstado())
+                .build();
+    }
+}

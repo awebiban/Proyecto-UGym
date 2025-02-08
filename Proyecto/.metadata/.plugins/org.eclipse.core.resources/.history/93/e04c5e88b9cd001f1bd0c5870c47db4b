@@ -1,0 +1,87 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.dto.ReservaDTO;
+import com.example.demo.repository.dao.ReservaRepository;
+import com.example.demo.repository.dao.UsuarioRepository;
+import com.example.demo.repository.entity.Reserva;
+import com.example.demo.repository.entity.Reserva.EstadoReserva;
+import com.example.demo.repository.entity.Usuario;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ReservaService {
+
+    @Autowired
+    private ReservaRepository reservaRepository;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private HorarioRepository horarioRepository;
+
+    // Crear una nueva reserva
+    public ReservaDTO crearReserva(ReservaDTO reservaDTO) {
+        Reserva reserva = new Reserva();
+
+        // Buscar usuario y horario por su ID
+        Optional<Usuario> usuario = usuarioRepository.findById(reservaDTO.getIdUsuario());
+        Optional<Horario> horario = horarioRepository.findById(reservaDTO.getIdHorario());
+
+        // Verificar si el usuario y el horario existen
+        if (usuario.isPresent() && horario.isPresent()) {
+            reserva.setUsuario(usuario.get());
+            reserva.setHorario(horario.get());
+            reserva.setFechaReserva(reservaDTO.getFechaReserva());
+            reserva.setEstado(EstadoReserva.valueOf(reservaDTO.getEstado()));
+
+            // Guardar la reserva
+            reserva = reservaRepository.save(reserva);
+
+            // Convertir a DTO y devolver
+            reservaDTO.setId(reserva.getId());
+            return reservaDTO;
+        }
+        return null; // O lanzar una excepción
+    }
+
+    // Obtener todas las reservas
+    public List<ReservaDTO> obtenerReservas() {
+        List<Reserva> reservas = reservaRepository.findAll();
+        return reservas.stream().map(reserva -> {
+            ReservaDTO dto = new ReservaDTO();
+            dto.setId(reserva.getId());
+            dto.setIdUsuario(reserva.getUsuario().getId());
+            dto.setIdHorario(reserva.getHorario().getId());
+            dto.setFechaReserva(reserva.getFechaReserva());
+            dto.setEstado(reserva.getEstado().name());
+            return dto;
+        }).toList();
+    }
+
+    // Obtener una reserva por su ID
+    public Optional<ReservaDTO> obtenerReservaPorId(Long id) {
+        Optional<Reserva> reserva = reservaRepository.findById(id);
+        if (reserva.isPresent()) {
+            Reserva r = reserva.get();
+            ReservaDTO dto = new ReservaDTO();
+            dto.setId(r.getId());
+            dto.setIdUsuario(r.getUsuario().getId());
+            dto.setIdHorario(r.getHorario().getId());
+            dto.setFechaReserva(r.getFechaReserva());
+            dto.setEstado(r.getEstado().name());
+            return Optional.of(dto);
+        }
+        return Optional.empty();
+    }
+
+    // Eliminar una reserva por ID
+    public void eliminarReserva(Long id) {
+        reservaRepository.deleteById(id);
+    }
+}

@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">Tus Mensajes</h2>
+
+    <div class="table-responsive mt-4">
+        <table class="table align-middle custom-table">
+            <thead>
+                <tr>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">De</th>
+                    <th scope="col" class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mensaje of mensajes" class="table-row">
+                    <td class="text-muted">{{ mensaje.fechaEnvio }}</td>
+                    <td>
+                        <span class="badge bg-primary">Notificación</span>
+                    </td>
+                    <td>
+                        <span class="fw-semibold text-dark">Administración</span>
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-outline-primary btn-sm me-2" (click)="verMensaje(mensaje.id)">
+                            Ver
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" (click)="borrarMensaje(mensaje.id)">
+                            Borrar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

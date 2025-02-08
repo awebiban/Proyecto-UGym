@@ -1,0 +1,14 @@
+<header class="header">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="logo" href="#"><img src="assets/imagenes/logo.png" alt="Logo del gym"></a>
+            <div class="nav-items">
+                <a class="nav-btn" (click)="inicio()">Inicio</a>
+                <a class="nav-btn" (click)="mensajes()">
+                    <i class="bi bi-bell-fill"></i>
+                </a>
+                <a (click)="perfil()"><img [src]="userPhotoUrl" alt="Foto de usuario" class="user-image"></a>
+            </div>
+        </div>
+    </nav>
+</header>

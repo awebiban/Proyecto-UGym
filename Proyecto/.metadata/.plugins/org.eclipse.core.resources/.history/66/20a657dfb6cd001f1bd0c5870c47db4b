@@ -1,0 +1,41 @@
+package com.example.demo.repository.entity;
+
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@Table(name = "horarios")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class HorarioClase {
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_horario;
+
+    private Long id_clase;
+
+    private Long id_empleado;
+
+    private Date hora_inicio;
+
+    private Date hora_fin;
+
+    private String dia_semana;
+    
+    private Date fecha;
+
+    private int plazas_disponibles;
+   
+}

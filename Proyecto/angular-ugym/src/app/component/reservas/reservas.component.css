@@ -1,0 +1,38 @@
+.card {
+    border: none;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body h5 {
+    color: #007bff;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+}
+
+.form-check-label {
+    font-size: 0.95rem;
+    color: #495057;
+}
+
+button.btn {
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button.btn:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,80 @@
+<div class="container my-5">
+    <div class="card shadow-sm">
+        <div class="card-header text-center bg-primary text-white">
+            <h2>Reserva Clase Privada</h2>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="reservaForm">
+                <!-- Usuario -->
+                <div class="mb-3">
+                    <input id="usuarioId" formControlName="usuarioId" type="hidden" />
+                </div>
+
+                <!-- Profesores -->
+                <div class="mb-3">
+                    <label for="profesorId" class="form-label">Profesor</label>
+                    <select id="profesorId" formControlName="profesorId" class="form-select">
+                        <option value="" disabled selected>Selecciona un profesor</option>
+                        <option *ngFor="let profesor of profesores" [value]="profesor.id">
+                            {{ profesor.nombre }}
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Día de la semana -->
+                <div class="mb-3">
+                    <label for="diaSemana" class="form-label">Día de la Semana</label>
+                    <select id="diaSemana" formControlName="diaSemana" class="form-select"
+                        (change)="filtrarHorariosPorDia()">
+                        <option value="" disabled selected>Selecciona un día</option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miércoles">Miércoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sábado">Sábado</option>
+                        <option value="Domingo">Domingo</option>
+                    </select>
+                </div>
+
+                <!-- Hora de la Reserva -->
+                <div class="mb-3">
+                    <label for="horaReserva" class="form-label">Hora de la Reserva</label>
+                    <select id="horaReserva" formControlName="horaReserva" class="form-select">
+                        <option value="" disabled selected>Selecciona una hora</option>
+                        <option *ngFor="let horario of horariosFiltrados" [value]="horario.horaInicio">
+                            {{ horario.horaInicio }} - {{ horario.horaFin }}
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Fecha de reserva -->
+                <div class="mb-3">
+                    <label for="fechaReserva" class="form-label">Fecha de Reserva</label>
+                    <input id="fechaReserva" formControlName="fechaReserva" type="date" class="form-control" />
+                </div>
+
+                <!-- Verificar Bonos -->
+                <div class="d-flex justify-content-between mb-3">
+                    <button type="button" class="btn btn-info" (click)="obtenerBonos()">
+                        Verificar Bonos
+                    </button>
+                </div>
+
+                <!-- Bonos Disponibles -->
+                <div *ngIf="bonoPrivado && bonoPrivado.saldo > 0">
+                    <h5>Bono Privado Disponible:</h5>
+                    <p>Saldo de Clases: {{ bonoPrivado.saldo }}</p>
+                </div>
+
+                <!-- Reservar -->
+                <div class="mt-4">
+                    <button type="button" class="btn btn-success w-100" (click)="realizarReserva()"
+                        [disabled]="!bonoPrivado || bonoPrivado.saldo <= 0">
+                        Realizar Reserva
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

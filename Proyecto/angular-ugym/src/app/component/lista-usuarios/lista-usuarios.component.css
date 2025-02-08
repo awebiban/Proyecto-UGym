@@ -1,0 +1,193 @@
+body {
+  background-color: #1860B2;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content {
+  background-color: white;
+  width: 140vmin;
+  height: 85vmin;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 480px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 20px;
+  flex-direction: row;
+}
+
+.search-bar {
+  padding: 5px;
+  width: 90%;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+button {
+
+  border-radius: 40px;
+}
+
+
+.usuario {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.usuario img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.usuario p {
+  flex-grow: 1;
+  text-align: left;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.usuario button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.usuario button:hover {
+  background-color: #0056b3;
+}
+
+.boton {
+
+  gap: -20px;
+  border-radius: 40px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+/* Media query for screens between 480px and 768px */
+@media (max-width: 768px){
+  body {
+
+    height: 275vh;
+  }
+  .content {
+    width: 90vmin;  /* Increase width for a wider container */
+    height: 275vmin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 80%;
+  }
+
+  .usuario {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .usuario img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .usuario p {
+    text-align: center;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* Media query for screens between 480px and 768px */
+@media (max-width: 468px) {
+
+  body {
+
+    height: 275vh;
+  }
+  .content {
+    width: 90vmin;  /* Increase width for a wider container */
+    height: 420vmin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 80%;
+  }
+
+  .usuario {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .usuario img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .usuario p {
+    text-align: center;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

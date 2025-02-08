@@ -1,0 +1,303 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1860B2;
+  }
+
+  .imagenInicio {
+
+    margin-left: -20px;
+    width: 102%;
+    height: 40%;
+
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .custom-carousel-img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  
+  /* Contenedor principal del carrusel */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* Contenedor de las imágenes */
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  margin-right: 250px;
+}
+
+/* Estilo de cada imagen dentro del carrusel */
+.carousel-item {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+
+}
+
+/* Estilo para las leyendas */
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+/* Controles de navegación */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  opacity: 0;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+/* Ocultar controles de navegación */
+input[type="radio"] {
+  display: none;
+}
+
+/* Animación para el carrusel */
+@keyframes slide {
+  0% {
+    transform: translateX(5%);
+  }
+  25% {
+    transform: translateX(5%);
+  }
+  50% {
+    transform: translateX(-65%);
+  }
+  75% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(5%);
+  }
+}
+
+/* Animación automática, para 3 imágenes */
+.carousel-wrapper {
+  animation: slide 15s infinite; /* 9s para recorrer 3 imágenes, 3s por imagen */
+}
+
+/* Cambio de imagen cuando se selecciona el control "next" */
+#next:checked ~ .carousel-wrapper {
+  animation: slide 9s infinite;
+  animation-delay: -3s;
+}
+
+/* Cambiar imagen cuando se selecciona el control "prev" */
+#prev:checked ~ .carousel-wrapper {
+  animation: slide 9s infinite;
+  animation-delay: -6s;
+}
+
+/* Mostrar controles al pasar el mouse */
+.carousel:hover .carousel-control {
+  opacity: 1;
+}
+
+/* Responsividad */
+@media screen and (max-width: 600px) {
+  .carousel-caption {
+    font-size: 18px;
+  }
+}
+  
+  .img-fluid-banner {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 150px;
+  }
+  
+  .btn-personalizado {
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-top: 30px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .btn-personalizado:hover {
+    background-color: #f8f9fa;
+    color: black;
+  }
+  
+  .btn-personalizado2 {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .btn-personalizado2:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
+  }
+  
+  .large-text {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  
+  .custom-btn {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .custom-btn:hover {
+    background-color: #f8f9fa;
+    color: black;
+    border: 2px solid black;
+  }
+  
+  footer {
+    background-color: #1860B2;
+  }
+  
+  .inline-text {
+    display: inline;
+    margin: 0 10px;
+  }
+
+  @media (max-width: 768px) {
+    /* Ajustar la imagen de fondo */
+    .imagenInicio {
+      width: 120%;
+      height: auto;
+    }
+
+    /* Cambiar tamaño del logo */
+    .img-fluid {
+      width: 50%;
+    }
+
+    /* Cambiar tamaño de los botones */
+    .btn-personalizado2 {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+
+    .btn-personalizado {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+
+    /* Centrar el texto */
+    .text-center {
+      text-align: center;
+    }
+
+    /* Ajustar los textos del banner */
+    .banner-text .large-text {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    /* Ajustar el carousel */
+    .carousel-wrapper img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Establecer un ancho adecuado para las imágenes del carousel */
+    .carousel-caption p {
+      font-size: 18px;
+    }
+  }
+
+  /* Media query para pantallas medianas (tabletas) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .imagenInicio {
+      width: 120%;
+      height: auto;
+    }
+
+    .img-fluid {
+      width: 30%;
+    }
+
+    .btn-personalizado2 {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+
+    .btn-personalizado {
+      font-size: 18px;
+      padding: 14px 28px;
+    }
+
+    /* Ajustar los textos */
+    .banner-text .large-text {
+      font-size: 25px;
+      line-height: 1.6;
+    }
+  }
+  

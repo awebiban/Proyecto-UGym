@@ -1,0 +1,151 @@
+/* Contenedor general */
+.container {
+  width: 70%;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.form-container {
+  display: flex;
+  width: 105%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+  margin-left: 150px;
+  height: 85vh;
+}
+
+.form-fields {
+  padding: 30px;
+  flex: 1;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-description {
+  text-align: center;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-top: 40px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Imagen */
+.image-container {
+  display: none;
+  flex: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+
+    margin-top: 450px;
+  }
+  .form-container {
+    width: 90%;
+    margin-left: 50px;
+    margin-top: -250px;
+  }
+
+  .form-title {
+    font-size: 18px;
+  }
+
+  .form-description {
+    font-size: 10px;
+  }
+
+  .input-field {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .container {
+
+    margin-top: 550px;
+  }
+  .form-container {
+    width: 100%;
+    margin-left: 1px;
+  }
+
+  .form-title {
+    font-size: 18px;
+  }
+
+  .form-description {
+    font-size: 10px;
+  }
+
+  .input-field {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}

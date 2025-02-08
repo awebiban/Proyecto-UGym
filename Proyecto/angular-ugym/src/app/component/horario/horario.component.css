@@ -1,0 +1,35 @@
+.day-button {
+    min-width: 100px;
+}
+
+.day-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.class-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+button.btn {
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button.btn:hover {
+    opacity: 0.9;
+}

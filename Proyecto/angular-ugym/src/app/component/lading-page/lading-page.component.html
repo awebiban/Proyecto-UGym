@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UGym</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container-fluid position-relative">
+    <img src="../../../assets/imagenes/Imagen1.webp" alt="Imagen de fondo" class="imagenInicio">
+    <div class="position-absolute top-0 start-0 p-3">
+      <img src="../../../assets/imagenes/logo.png" alt="Logo" class="img-fluid w-25">
+    </div>
+    <div class="position-absolute top-0 end-0 p-3">
+      <button (click)="login()" class="btn btn-personalizado2 mx-2">Iniciar Sesion</button>
+      <a (click)="registro()" class="btn btn-personalizado2">Registrarse</a>
+    </div>
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+      <h1 class="display-1 font-weight-bold">Bienvenidos a UGym</h1>
+      <a (click)="registro()" class="btn-personalizado">Registrate</a>
+    </div>
+  </div>
+  
+<div class="carousel">
+  <div class="carousel-wrapper">
+    <div class="carousel-wrapper">
+      <img src="../../../assets/imagenes/entrenamineto.png" alt="Entrenamiento">
+      <div class="carousel-caption">
+        <p>Entrenamiento</p>
+      </div>
+    </div>
+    <div class="carousel-wrapper">
+      <img src="../../../assets/imagenes/HIIT.png" alt="HIIT">
+      <div class="carousel-caption">
+        <p>HIIT</p>
+      </div>
+    </div>
+    <div class="carousel-wrapper">
+      <img src="../../../assets/imagenes/yoga.png" alt="Yoga">
+      <div class="carousel-caption">
+        <p>Yoga</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles de navegación -->
+  <input type="radio" name="carousel-control" id="prev" class="carousel-control prev">
+  <input type="radio" name="carousel-control" id="next" class="carousel-control next">
+</div>
+  
+  
+  
+  
+  <div class="container-fluid position-relative">
+    <img src="../../../assets/imagenes/Imagen2.png" alt="Imagen final" class="imagenInicio">
+    <div class="banner-text">
+      <h1 class="large-text">TU TIEMPO VALE MUCHO CUIDAR TU SALUD ES LA MEJOR INVERSIÓN</h1>
+      <h1 class="large-text">Prueba nuestra plataforma y descubre cuánto puedes ahorrar entrenando con nosotros</h1>
+      <div class="text-center">
+        <a (click)="registro()" class="btn custom-btn">Empieza Ya</a>
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
+

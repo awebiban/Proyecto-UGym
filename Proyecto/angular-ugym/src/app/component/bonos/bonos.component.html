@@ -1,0 +1,80 @@
+<div class="container py-5 bonos-container">
+    <h2 class="text-center mb-4">Tus Bonos</h2>
+    <div class="row justify-content-center">
+
+        <!-- Bono General -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="bono-card">
+                <div class="bono-card-header" style="background-image: url('https://placehold.co/600x400');">
+                    <p class="bono-label">Bono</p>
+                    <h6 class="bono-info">Información del bono general</h6>
+                </div>
+                <div class="bono-card-body">
+                    <h5 class="bono-title">General</h5>
+                    <p class="bono-description">Este bono sirve para todas las clases generales del gym.</p>
+                    <p>
+                        <strong>Fecha de inicio:</strong> {{ bonoGeneral.fechaInicio || 'N/A' }}
+                    </p>
+                    <p>
+                        <strong>Fecha de fin:</strong> {{ bonoGeneral.fechaFin || 'N/A' }}
+                    </p>
+                    <button class="bono-button" (click)="abrirModal('General')">Recargar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bono Privado -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="bono-card">
+                <div class="bono-card-header" style="background-image: url('https://placehold.co/600x400');">
+                    <p class="bono-label">Bono</p>
+                    <h6 class="bono-info">Información del bono privado</h6>
+                </div>
+                <div class="bono-card-body">
+                    <h5 class="bono-title">Privado</h5>
+                    <p class="bono-description">Este bono es para las clases privadas con tu instructor favorito.</p>
+
+                    <!-- Número de clases restantes -->
+                    <div class="bono-saldo">
+                        <i class="fas fa-chalkboard-teacher"></i> <!-- Icono representativo -->
+                        <span>{{ bonoPrivado.saldo }} clases restantes</span>
+                    </div>
+
+                    <button class="bono-button" (click)="abrirModal('Privado')">Recargar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal para recargar bonos -->
+<div class="modal" id="modalRecarga">
+    <div class="modal-overlay" (click)="cerrarModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Recargar {{ bonoSeleccionado }}</h3>
+            <button class="close-btn" (click)="cerrarModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p *ngIf="bonoSeleccionado === 'Privado'">
+                Selecciona la cantidad de clases que deseas recargar (10 € por clase):
+            </p>
+            <p *ngIf="bonoSeleccionado === 'General'">
+                Recargarás 1 bono válido por 30 días.
+            </p>
+
+            <div *ngIf="bonoSeleccionado === 'Privado'">
+                <input type="number" class="input-clases" [(ngModel)]="clasesAdicionales" placeholder="Número de clases"
+                    min="1" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn cancelar" (click)="cerrarModal()">Cancelar</button>
+            <button class="btn confirmar" (click)="recargarBono()"
+                [disabled]="bonoSeleccionado === 'Privado' && clasesAdicionales <= 0">
+                Continuar a PayPal
+            </button>
+        </div>
+    </div>
+</div>

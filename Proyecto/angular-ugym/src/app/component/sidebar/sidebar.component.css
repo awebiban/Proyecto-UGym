@@ -1,0 +1,86 @@
+.toggle-btn {
+    position: absolute;
+    margin: 1%;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1030;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+.nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.nav-item:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.sidebar-footer .nav-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.sidebar-footer .nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}

@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 79vh;
+    margin: 10px;
+}
+
+.container {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+}

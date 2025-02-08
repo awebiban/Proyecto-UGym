@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Tu información:</h2>
+    <form (ngSubmit)="guardarCambios()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="usuario.email" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" [(ngModel)]="usuario.apellido">
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha-nacimiento">Fecha Nacimiento:</label>
+        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" [(ngModel)]="usuario.fechaNacimiento">
+      </div>
+  
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" [(ngModel)]="usuario.contrasena">
+      </div>
+  
+      <div class="form-group">
+        <label for="repite-contrasena">Repite Contraseña:</label>
+        <input type="password" id="repite-contrasena" name="repite-contrasena">
+      </div>
+  
+      <div class="image-container">
+        <img [src]="imagenUrl" alt="Imagen de perfil">
+        <input type="file" (change)="cargarImagen($event)">
+        <button type="button" (click)="eliminarImagen()">Eliminar imagen</button>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="save-button">Guardar</button>
+      </div>
+    </form>
+</div>
