@@ -1,3 +1,3 @@
-# Mario-Oscar-Ivan-Cristian
+# Git personal, no es el git colaborativo
 
 
